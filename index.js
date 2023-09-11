@@ -14,7 +14,7 @@ app.get('/hubspot/:id', async (req, res) => {
   const id = req.params.id;
 
   try {
-    const response = await axios.get(`https://api.hubapi.com/crm/v3/objects/contacts/${id}`, {
+    const response = await axios.get(`https://api.hubapi.com/crm/v3/objects/contacts/${id}?properties=lastname,firstname,phone,email`, {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${process.env.HUBSPOT_API_KEY}`,
